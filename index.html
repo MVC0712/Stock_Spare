@@ -10,24 +10,16 @@
   <body>
     <header>Home Page</header>
       <div style="flex-direction: row; display:flex;">
-            <button id="add_form">Add form</button>
-            <button id="check">Check page</button>
-            <button id="confirm">Confirm page</button>
-            <button id="month_summary">Month summary page</button>
+            <button id="Shopping_List">Shopping_List</button>
+            <button id="Shopping_List_SMC">Shopping_List_SMC</button>
       </div>
       <script src="./Lib/jquery.min.js"></script>
       <script>
-        $(document).on("click", "#add_form", function () {
-          window.open("/Check_Sheet/AddForm");
+        $(document).on("click", "#Shopping_List", function () {
+          window.open("/Stock_Spare/Shopping_List");
         });
-        $(document).on("click", "#check", function () {
-          window.open("/Check_Sheet/Check");
-        });
-        $(document).on("click", "#confirm", function () {
-          window.open("/Check_Sheet/Confirm");
-        });
-        $(document).on("click", "#month_summary", function () {
-          window.open("/Check_Sheet/MonthSummary");
+        $(document).on("click", "#Shopping_List_SMC", function () {
+          window.open("/Stock_Spare/Shopping_List_SMC");
         });
       </script>
 </html>

@@ -18,16 +18,16 @@ const myAjax = {
     },
 };
 
+var formatDateComponent = function(dateComponent) {
+    return (dateComponent < 10 ? '0' : '') + dateComponent;
+};
+var formatDate = function(date) {
+    return date.getFullYear()  + '-' + formatDateComponent(date.getMonth() + 1) + '-' + formatDateComponent(date.getDate()) ;
+};
+
 $(function() {
-    inputSession();
-    // machine();
-    var formatDateComponent = function(dateComponent) {
-        return (dateComponent < 10 ? '0' : '') + dateComponent;
-      };
-    
-      var formatDate = function(date) {
-        return date.getFullYear()  + '-' + formatDateComponent(date.getMonth() + 1) + '-' + formatDateComponent(date.getDate()) ;
-      };
+    // inputSession();
+
     $("#check_date").val(formatDate(new Date()));
     makeSummaryTable();
 });
