@@ -30,36 +30,35 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th class="sticky-col first-col">Check date</th>
-                        <th class="sticky-col second-col">Staff check</th>
-                        <th>Staff confirm</th>
-                        <th>Line</th>
-                        <th>Machine</th>
-                        <th>List Check</th>
-                        <th>id</th>
-                        <th>Check date</th>
-                        <th>Staff check</th>
-                        <th>Staff confirm</th>
-                        <th>Line</th>
-                        <th>Machine</th>
-                        <th>List Check</th>
-                        <th>id</th>
-                        <th>Check date</th>
-                        <th>Staff check</th>
-                        <th>Staff confirm</th>
-                        <th>Line</th>
-                        <th>Machine</th>
-                        <th>List Check</th>
-                        <th>id</th>
-                        <th>Check date</th>
-                        <th>Staff check</th>
-                        <th>Staff confirm</th>
-                        <th>Line</th>
-                        <th>Machine</th>
-                        <th>List Check</th>
-                        <th>Line</th>
-                        <th>Machine</th>
-                        <th>List Check</th>
+                        <th class="sticky-col c1">PO No.</th>
+                        <th class="sticky-col c2">Imprort Wharehouse</th>
+                        <th class="sticky-col c3">PR SAP</th>
+                        <th class="sticky-col c4">Shoping cart</th>
+                        <th class="sticky-col c5">PO Shopping cart</th>
+                        <th class="sticky-col c6">Ringi No.</th>
+                        <th class="sticky-col c7">Approved No.</th>
+                        <th class="sticky-col c8">Product EN Name</th>
+                        <th>Product Vie Name</th>
+                        <th>Product ID</th>
+                        <th>Maker</th>
+                        <th>Supplier</th>
+                        <th>Product Category ID</th>
+                        <th>Stock/Non-Stock</th>
+                        <th>Quantity</th>
+                        <th>Units</th>
+                        <th>Currency Unit</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                        <th>Order date</th>
+                        <th>Deliery date</th>
+                        <th>To SMC date</th>
+                        <th>Person incharge</th>
+                        <th>Requester</th>
+                        <th>Quotation Request Date</th>
+                        <th>Type</th>
+                        <th>Using position</th>
+                        <th>Ringi Date</th>
+                        <th>note</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
