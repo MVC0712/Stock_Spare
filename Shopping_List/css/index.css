@@ -48,7 +48,7 @@ td {
     display: flex;
     flex-direction: row;
     padding: 0;
-    height: 70%;
+    height: 30%;
     width: 100%;
     border-bottom: dotted blue 1px;
 }
@@ -77,7 +77,7 @@ td {
     display: flex;
     flex-direction: row;
     padding: 0;
-    height: 29%;
+    height: 69%;
     width: 100%;
     position: relative;
     overflow: auto;
@@ -88,6 +88,7 @@ td {
 .sticky-col {
     position: -webkit-sticky;
     position: sticky;
+    z-index:1;
 }
 .c1 {
     width: 100px;
@@ -132,12 +133,59 @@ td {
     left: 618px;
 }
 .c8 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
     left: 721px;
 }
-
+.cc1 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 0px;
+}
+.cc2 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 103px;
+}
+.cc3 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 206px;
+}
+.cc4 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 309px;
+}
+.cc5 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 412px;
+}
+.cc6 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 515px;
+}
+.cc7 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 618px;
+}
+.cc8 {
+    width: 102px;
+    min-width: 102px;
+    max-width: 102px;
+    left: 721px;
+}
 tbody tr.selected-record {
     background-color: #20b9ff;
 }
@@ -165,50 +213,59 @@ tbody tr.selected-record {
     background-color: #0000ff;
     color: white;
 }
-
-#summary__table tbody {
-    height: 150px;
-    width: 798px;
+#summary__table_left tbody,
+#summary__table_right tbody {
+    height: 350px;
     overflow: auto;
 }
-#summary__table td {
-    text-align: left;
+#summary__table th {
+    text-align: center;
 }
-#summary__table th:nth-child(1),
-#summary__table td:nth-child(1) {
+#summary__table_left th:nth-child(1),
+#summary__table_left td:nth-child(1) {
     display: none;
 }
-#summary__table th:nth-child(2),
-#summary__table td:nth-child(2) {
+#summary__table_left th:nth-child(n + 1),
+#summary__table_left td:nth-child(n + 1) {
     width: 100px;
     text-align: center;
 }
-#summary__table th:nth-child(3),
-#summary__table td:nth-child(3) {
+#summary__table_right th:nth-child(n),
+#summary__table_right td:nth-child(n) {
     width: 100px;
-}
-#summary__table th:nth-child(4),
-#summary__table td:nth-child(4) {
-    width: 100px;
-}
-#summary__table th:nth-child(5),
-#summary__table td:nth-child(5) {
-    width: 100px;
-}
-#summary__table th:nth-child(6),
-#summary__table td:nth-child(6) {
-    width: 100px;
-}
-#summary__table th:nth-child(7),
-#summary__table td:nth-child(7) {
-    width: 100px;
-}
-#summary__table th:nth-child(8),
-#summary__table td:nth-child(8) {
-    width: 100px;
-}
-#summary__table th:nth-child(9),
-#summary__table td:nth-child(9) {
-    width: 40px;
     text-align: center;
+}
+#input_table tbody {
+    overflow: hidden;
+    height: 25px;
+    padding-bottom: 10px;
+}
+#input_table th:nth-child(n),
+#input_table td:nth-child(n) {
+    width: 120px;
+    text-align: center;
+}
+#input_table td:nth-child(n) input {
+    width: 120px;
+    height: 22px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid rgb(0, 0, 255);
+}
+#input_table td:nth-child(n) select {
+    width: 122px;
+    height: 22px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid rgb(0, 0, 255);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+#search_input {
+    padding: 0;
+    border: 0;
+    width: 100px;
+    height: 15.5px;
 }
