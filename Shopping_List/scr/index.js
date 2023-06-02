@@ -28,7 +28,15 @@ var formatDate = function(date) {
 $(function() {
     // inputSession();
     makeSummaryTable()
-
+    makeLine();
+    makeCategory();
+    makeStockNonstock();
+    makeUnit();
+    makePic();
+    makeReq();
+    $("#save").attr("disabled", true);
+    $("#update").attr("disabled", true);
+    // $("#add_same").attr("disabled", true);
 });
 $(document).on("click", "#log_out", function() {
     $('#active_staff').html('');
@@ -68,6 +76,112 @@ function makeSummaryTable() {
     myAjax.myAjax(fileName, sendData);
     fillTableBody(ajaxReturnData, $("#summary__table tbody"));
 };
+$(document).on("click", "#summary__table tbody tr", function (e) {
+    let fileName = "SelUpdate.php";
+    let sendData;
+    if (!$(this).hasClass("selected-record")) {
+      $(this).parent().find("tr").removeClass("selected-record");
+      $(this).addClass("selected-record");
+      $("#selected__tr").removeAttr("id");
+      $(this).attr("id", "selected__tr");
+      sendData = {
+        targetId: $("#selected__tr").find("td").eq(0).html(),
+      };
+      myAjax.myAjax(fileName, sendData);
+      putDataToInput(ajaxReturnData);
+    } else {
+    }
+    $("#save").attr("disabled", false);
+    $("#update").attr("disabled", false);
+    $(".save-data").each(function (index, element) {
+      $(this).removeClass("no-input").addClass("complete-input");
+    });
+});
+function putDataToInput(data) {
+    data.forEach(function (trVal) {
+      Object.keys(trVal).forEach(function (tdVal) {
+        $("#" + tdVal).val(trVal[tdVal]); 
+      });
+  });
+};
+function makeLine() {
+    var fileName = "SelLine.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#line_id option").remove();
+    $("#line_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#line_id").append(
+            $("<option>").val(value["id"]).html(value["line"])
+        );
+    });
+};
+function makeCategory() {
+    var fileName = "SelCategory.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#category_id option").remove();
+    $("#category_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#category_id").append(
+            $("<option>").val(value["id"]).html(value["category"])
+        );
+    });
+};
+function makeStockNonstock() {
+    var fileName = "SelStockNonstock.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#stock_nonstock_id option").remove();
+    $("#stock_nonstock_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#stock_nonstock_id").append(
+            $("<option>").val(value["id"]).html(value["stock_nonstock"])
+        );
+    });
+};
+function makeUnit() {
+    var fileName = "SelUnit.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#unit_id option").remove();
+    $("#unit_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#unit_id").append(
+            $("<option>").val(value["id"]).html(value["unit"])
+        );
+    });
+};
+function makePic() {
+    var fileName = "SelPic.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#person_incharge_id option").remove();
+    $("#person_incharge_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#person_incharge_id").append(
+            $("<option>").val(value["id"]).html(value["person_incharge"])
+        );
+    });
+};
+function makeReq() {
+    var fileName = "SelReq.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#requester_id option").remove();
+    $("#requester_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#requester_id").append(
+            $("<option>").val(value["id"]).html(value["requester"])
+        );
+    });
+};
 function getData(fileName, sendData = {}) {
     myAjax.myAjax(fileName, sendData);
 };
@@ -90,7 +204,6 @@ function fillTableBody(data, tbodyDom) {
             } else {
                 $("<td>").html(trVal[tdVal]).appendTo(newTr);
             }
-            console.log(index)
         });
         $(newTr).appendTo(tbodyDom);
     });
@@ -159,6 +272,14 @@ $(document).on("click", "#save", function () {
     myAjax.myAjax(fileName, sendData);
     makeSummaryTable()
 });
+$(document).on("click", "#update", function () {
+    fileName = "UpdateData.php";
+    inputData = getInputData();
+    inputData["targetId"] = $("#selected__tr").find("td").eq(0).html();
+    sendData = inputData;
+    myAjax.myAjax(fileName, sendData);
+    makeSummaryTable()
+});
 function getInputData() {
     let inputData = new Object();
       $("input.save-data").each(function (index, element) {
@@ -192,17 +313,17 @@ function getTableData(tableTrObj) {
 };
 function checkInput() {
     let check = true;
-    $(".upper__wrapper .left__wrapper input .save-data").each(function() {
+    $(".upper__wrapper #input_area #input_table input .save-data").each(function() {
         if ($(this).val() == "") {
             check = false;
         }
     });
-    $(".upper__wrapper .left__wrapper select .save-data").each(function() {
+    $(".upper__wrapper #input_area #input_table select .save-data").each(function() {
         if ($(this).val() == 0) {
             check = false;
         }
     });
-    if ($("#summary_table tbody tr").hasClass("selected-record")) {
+    if ($("#summary__table tbody tr").hasClass("selected-record")) {
         check = false;
     }
     if (check) {
@@ -210,4 +331,10 @@ function checkInput() {
     } else {
         $("#save").attr("disabled", true);
     } 
-  };
+    if ($("#summary_table tbody tr").hasClass("selected-record")) {
+        $("#update").attr("disabled", false);
+    } else {
+        $("#update").attr("disabled", true);
+    }
+    return check;
+};

@@ -90,7 +90,7 @@ td {
     position: sticky;
     z-index:1;
 }
-.c1 {
+/* .c1 {
     width: 100px;
     min-width: 100px;
     max-width: 100px;
@@ -184,8 +184,8 @@ td {
     width: 102px;
     min-width: 102px;
     max-width: 102px;
-    left: 721px;
-}
+    left: 721px; 
+}*/
 tbody tr.selected-record {
     background-color: #20b9ff;
 }
@@ -213,26 +213,27 @@ tbody tr.selected-record {
     background-color: #0000ff;
     color: white;
 }
-#summary__table_left tbody,
-#summary__table_right tbody {
+/* #summary__table {
+    width: 3105px;
+} */
+#summary__table tbody {
     height: 350px;
+    width: 3005px;
     overflow: auto;
 }
 #summary__table th {
     text-align: center;
 }
-#summary__table_left th:nth-child(1),
-#summary__table_left td:nth-child(1) {
+#summary__table th:nth-child(1),
+#summary__table td:nth-child(1) {
     display: none;
 }
-#summary__table_left th:nth-child(n + 1),
-#summary__table_left td:nth-child(n + 1) {
+#summary__table th:nth-child(n + 1) {
     width: 100px;
     text-align: center;
 }
-#summary__table_right th:nth-child(n),
-#summary__table_right td:nth-child(n) {
-    width: 100px;
+#summary__table td:nth-child(n + 1) {
+    width: 103px;
     text-align: center;
 }
 #input_table tbody {
