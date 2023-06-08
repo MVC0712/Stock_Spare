@@ -5,7 +5,7 @@ if ($dbh->getInstance() === null) {
     die("No database connection");
 }
 try {
-    $sql = "SELECT id, check_type, duration FROM check_sheet.m_check_type;";
+    $sql = "SELECT * FROM m_unit WHERE 1;";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

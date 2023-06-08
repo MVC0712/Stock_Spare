@@ -32,6 +32,7 @@ $(function() {
     makeCategory();
     makeStockNonstock();
     makeUnit();
+    makeCurrencyUnit()
     makePic();
     makeReq();
     $("#save").attr("disabled", true);
@@ -153,6 +154,19 @@ function makeUnit() {
     ajaxReturnData.forEach(function(value) {
         $("#unit_id").append(
             $("<option>").val(value["id"]).html(value["unit"])
+        );
+    });
+};
+function makeCurrencyUnit() {
+    var fileName = "SelCurrencyUnit.php";
+    var sendData = {
+    };
+    myAjax.myAjax(fileName, sendData);
+    $("#currency_unit_id option").remove();
+    $("#currency_unit_id").append($("<option>").val(0).html("NO"));
+    ajaxReturnData.forEach(function(value) {
+        $("#currency_unit_id").append(
+            $("<option>").val(value["id"]).html(value["currency_unit"])
         );
     });
 };
@@ -289,7 +303,6 @@ function getInputData() {
         inputData[$(this).attr("id")] = $(this).val();
       });
       inputData["targetId"] = $("#selected__tr").find("td").eq(0).html();
-    console.log(Object.keys(inputData).length);
     return inputData;
 };
 function getTableData(tableTrObj) {
@@ -313,25 +326,21 @@ function getTableData(tableTrObj) {
 };
 function checkInput() {
     let check = true;
-    $(".upper__wrapper #input_area #input_table input .save-data").each(function() {
-        if ($(this).val() == "") {
-            check = false;
-        }
-    });
-    $(".upper__wrapper #input_area #input_table select .save-data").each(function() {
-        if ($(this).val() == 0) {
-            check = false;
-        }
+    $(".save-data").each(function() {
+      if ($(this).hasClass("no-input")) {
+        check = false;
+        console.log(1)
+      }
     });
     if ($("#summary__table tbody tr").hasClass("selected-record")) {
-        check = false;
+      check = false;
     }
     if (check) {
-        $("#save").attr("disabled", false);
+      $("#save").attr("disabled", false);
     } else {
-        $("#save").attr("disabled", true);
+      $("#save").attr("disabled", true);
     } 
-    if ($("#summary_table tbody tr").hasClass("selected-record")) {
+    if ($("#summary__table tbody tr").hasClass("selected-record")) {
         $("#update").attr("disabled", false);
     } else {
         $("#update").attr("disabled", true);

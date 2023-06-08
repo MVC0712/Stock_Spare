@@ -90,102 +90,6 @@ td {
     position: sticky;
     z-index:1;
 }
-/* .c1 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 0px;
-}
-.c2 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 103px;
-}
-.c3 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 206px;
-}
-.c4 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 309px;
-}
-.c5 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 412px;
-}
-.c6 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 515px;
-}
-.c7 {
-    width: 100px;
-    min-width: 100px;
-    max-width: 100px;
-    left: 618px;
-}
-.c8 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 721px;
-}
-.cc1 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 0px;
-}
-.cc2 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 103px;
-}
-.cc3 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 206px;
-}
-.cc4 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 309px;
-}
-.cc5 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 412px;
-}
-.cc6 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 515px;
-}
-.cc7 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 618px;
-}
-.cc8 {
-    width: 102px;
-    min-width: 102px;
-    max-width: 102px;
-    left: 721px; 
-}*/
 tbody tr.selected-record {
     background-color: #20b9ff;
 }
@@ -213,12 +117,10 @@ tbody tr.selected-record {
     background-color: #0000ff;
     color: white;
 }
-/* #summary__table {
-    width: 3105px;
-} */
+
 #summary__table tbody {
     height: 350px;
-    width: 3005px;
+    width: 3085px;
     overflow: auto;
 }
 #summary__table th {
@@ -234,6 +136,14 @@ tbody tr.selected-record {
 }
 #summary__table td:nth-child(n + 1) {
     width: 103px;
+    text-align: center;
+}
+#summary__table th:nth-child(14) {
+    width: 180px;
+    text-align: center;
+}
+#summary__table td:nth-child(14) {
+    width: 183px;
     text-align: center;
 }
 #input_table tbody {

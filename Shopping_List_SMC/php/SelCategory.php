@@ -4,9 +4,8 @@ $dbh = new DBHandler();
 if ($dbh->getInstance() === null) {
     die("No database connection");
 }
-$line_id = $_POST['line_id'];
 try {
-    $sql = "SELECT id, machine FROM check_sheet.t_machine WHERE line_id = '$line_id';";
+    $sql = "SELECT * FROM m_category WHERE 1;";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

@@ -1,3 +1,3 @@
 <?php
-  readfile("Check.html");
+  readfile("Shopping_List_SMC.php");
 ?>
