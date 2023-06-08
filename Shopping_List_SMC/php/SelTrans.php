@@ -5,7 +5,7 @@ if ($dbh->getInstance() === null) {
     die("No database connection");
 }
 try {
-    $sql = "SELECT * FROM m_category WHERE 1;";
+    $sql = "SELECT * FROM m_delivery_by WHERE 1;";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

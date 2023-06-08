@@ -29,11 +29,7 @@ $(function() {
     // inputSession();
     makeSummaryTable()
     makeLine();
-    makeCategory();
-    makeStockNonstock();
-    makeUnit();
-    makeCurrencyUnit()
-    makePic();
+    makeTranBy();
     makeReq();
     $("#save").attr("disabled", true);
     $("#update").attr("disabled", true);
@@ -118,68 +114,16 @@ function makeLine() {
         );
     });
 };
-function makeCategory() {
-    var fileName = "SelCategory.php";
+function makeTranBy() {
+    var fileName = "SelTrans.php";
     var sendData = {
     };
     myAjax.myAjax(fileName, sendData);
-    $("#category_id option").remove();
-    $("#category_id").append($("<option>").val(0).html("NO"));
+    $("#delivery_by_id option").remove();
+    $("#delivery_by_id").append($("<option>").val(0).html("NO"));
     ajaxReturnData.forEach(function(value) {
-        $("#category_id").append(
-            $("<option>").val(value["id"]).html(value["category"])
-        );
-    });
-};
-function makeStockNonstock() {
-    var fileName = "SelStockNonstock.php";
-    var sendData = {
-    };
-    myAjax.myAjax(fileName, sendData);
-    $("#stock_nonstock_id option").remove();
-    $("#stock_nonstock_id").append($("<option>").val(0).html("NO"));
-    ajaxReturnData.forEach(function(value) {
-        $("#stock_nonstock_id").append(
-            $("<option>").val(value["id"]).html(value["stock_nonstock"])
-        );
-    });
-};
-function makeUnit() {
-    var fileName = "SelUnit.php";
-    var sendData = {
-    };
-    myAjax.myAjax(fileName, sendData);
-    $("#unit_id option").remove();
-    $("#unit_id").append($("<option>").val(0).html("NO"));
-    ajaxReturnData.forEach(function(value) {
-        $("#unit_id").append(
-            $("<option>").val(value["id"]).html(value["unit"])
-        );
-    });
-};
-function makeCurrencyUnit() {
-    var fileName = "SelCurrencyUnit.php";
-    var sendData = {
-    };
-    myAjax.myAjax(fileName, sendData);
-    $("#currency_unit_id option").remove();
-    $("#currency_unit_id").append($("<option>").val(0).html("NO"));
-    ajaxReturnData.forEach(function(value) {
-        $("#currency_unit_id").append(
-            $("<option>").val(value["id"]).html(value["currency_unit"])
-        );
-    });
-};
-function makePic() {
-    var fileName = "SelPic.php";
-    var sendData = {
-    };
-    myAjax.myAjax(fileName, sendData);
-    $("#person_incharge_id option").remove();
-    $("#person_incharge_id").append($("<option>").val(0).html("NO"));
-    ajaxReturnData.forEach(function(value) {
-        $("#person_incharge_id").append(
-            $("<option>").val(value["id"]).html(value["person_incharge"])
+        $("#delivery_by_id").append(
+            $("<option>").val(value["id"]).html(value["delivery_by"])
         );
     });
 };

@@ -6,7 +6,7 @@ if ($dbh->getInstance() === null) {
 }
 $id = $_POST["targetId"];
 try {
-    $sql = "SELECT * FROM t_shopping_list WHERE id = '$id'";
+    $sql = "SELECT * FROM t_shopping_list_smc WHERE id = '$id'";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
