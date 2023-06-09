@@ -4,6 +4,8 @@ $dbh = new DBHandler();
 if ($dbh->getInstance() === null) {
     die("No database connection");
 }
+$line_id = $_POST["line_id"];
+$search_input = $_POST["search_input"];
 try {
     $sql = "SELECT 
     t_shopping_list.id,
@@ -53,7 +55,9 @@ FROM
         LEFT JOIN
     m_type ON m_type.id = t_shopping_list.type_id
         LEFT JOIN
-    m_unit ON m_unit.id = t_shopping_list.unit_id";
+    m_unit ON m_unit.id = t_shopping_list.unit_id
+    WHERE line_id = $line_id AND (product_vie_name LIKE '%$search_input%' OR product_en_name LIKE '%$search_input%' OR product_id LIKE '%$search_input%')
+    ";
     $stmt = $dbh->getInstance()->prepare($sql);
     $stmt->execute();
     echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

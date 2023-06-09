@@ -27,10 +27,10 @@ var formatDate = function(date) {
 
 $(function() {
     // inputSession();
-    makeSummaryTable()
     makeLine();
     makeTranBy();
     makeReq();
+    makeSummaryTable();
     $("#save").attr("disabled", true);
     $("#update").attr("disabled", true);
     // $("#add_same").attr("disabled", true);
@@ -68,7 +68,7 @@ function inputSession() {
 function makeSummaryTable() {
     var fileName = "SelSummary.php";
     var sendData = {
-        
+        line_id : $("#line_id").val(),
     };
     myAjax.myAjax(fileName, sendData);
     fillTableBody(ajaxReturnData, $("#summary__table tbody"));
@@ -222,6 +222,9 @@ $(document).on("keyup", ".number-input", function() {
         $(this).removeClass("complete-input").addClass("no-input");
     }
     checkInput();
+});
+$(document).on("change", "#line_id", function() {
+    makeSummaryTable();
 });
 $(document).on("click", "#save", function () {
     fileName = "InsData.php";
